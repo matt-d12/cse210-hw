@@ -29,9 +29,13 @@ class Program
         //Calculate average
         float average = (float)sum / numbers.Count;
 
+        //Find largest number
+        int largest = numbers.Max();
+
         //Display results
         Console.WriteLine($"The sum is: {sum}");
         Console.WriteLine($"The average is: {average}");
+        Console.WriteLine($"The largest number is: {largest}");
 
         /* //Loop to check list is working as intended
         for (int i= 0; i < numbers.Count; i++)
