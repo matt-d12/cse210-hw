@@ -39,11 +39,14 @@ class Program
         Console.WriteLine($"The largest number is: {largest}");
         Console.WriteLine($"The smallest positive number is: {smallest}");
 
-        /* //Loop to check list is working as intended
+        //Order list from smallest to largest
+        numbers.Sort();
+
+        //Loop through sorted list and output
         for (int i= 0; i < numbers.Count; i++)
         {
             Console.WriteLine(numbers[i]);
         }
-        */
+        
     }
 }
