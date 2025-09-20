@@ -7,10 +7,9 @@ class Program
         //Declare variable
         int guess = -1;   //Set to -1 at start so won't match user number
 
-        //Get magic number from user and convert
-        Console.Write("What is the magic number? ");
-        string userNumber = Console.ReadLine();
-        int number = int.Parse(userNumber);
+        //Get magic number from random generator
+        Random randomGenerator = new Random();
+        int number = randomGenerator.Next(1, 101);
 
         //Use do-while loop to get first guess before checking
         do
