@@ -32,6 +32,21 @@ class Program
 
     }
 
+    //Function to square the user's favorite number
+    static void SquareNumber(ref int number)
+    {
+        number = number * number;
+    }
+
+    //Function to display results and calculate how old they turn this year
+    static void DisplayResults(ref string name, ref int number, ref int year)
+    {
+        int age = 2025 - year;
+        //Outputs
+        Console.WriteLine($"{name}, the square of your number is {number}");
+        Console.WriteLine($"{name}, you will turn {age} this year.");
+    }
+
     static void Main(string[] args)
     {
         //Establish variables
@@ -44,10 +59,7 @@ class Program
         PromptUserName(ref name);
         PromptUserNumber(ref number);
         PromptUserBirthYear(out year);
-
-        //Outputs
-        Console.WriteLine($"{name}, your favorite number is {number}");
-        Console.WriteLine($"{name}, you were born in {year}");
-
+        SquareNumber(ref number);
+        DisplayResults(ref name, ref number, ref year);
     }
 }
