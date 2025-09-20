@@ -34,19 +34,24 @@ class Program
         {
             letterGrade = "F";
         }
-        
-        //Calculate remainder to see if + or -
-        if (grade % 10 >= 7)
+
+        //Check for exceptions before getting symbol to see if need one
+        //(no A+, F+ or F-)
+        if (grade >= 60 && grade < 93)
         {
-            symbol = "+";
-        }
-        else if (grade % 10 < 3)
-        {
-            symbol = "-";
+            //Calculate remainder to see if + or -
+            if (grade % 10 >= 7)
+            {
+                symbol = "+";
+            }
+            else if (grade % 10 < 3)
+            {
+                symbol = "-";
+            }
         }
 
         //Output based on input
-        Console.WriteLine($"Your grade is a {letterGrade}{symbol}");
+            Console.WriteLine($"Your grade is a {letterGrade}{symbol}");
 
         //Tell user if they pass or fail - above 70 needed
         if (grade >= 70)
