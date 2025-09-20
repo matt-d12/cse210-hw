@@ -29,13 +29,15 @@ class Program
         //Calculate average
         float average = (float)sum / numbers.Count;
 
-        //Find largest number
+        //Find largest & smallest number that are positives
         int largest = numbers.Max();
+        int smallest = numbers.Where(n => n > 0).Min();
 
         //Display results
         Console.WriteLine($"The sum is: {sum}");
         Console.WriteLine($"The average is: {average}");
         Console.WriteLine($"The largest number is: {largest}");
+        Console.WriteLine($"The smallest positive number is: {smallest}");
 
         /* //Loop to check list is working as intended
         for (int i= 0; i < numbers.Count; i++)
