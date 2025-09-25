@@ -21,5 +21,15 @@ class Program
         //Output
         job1.Display();
         job2.Display();
+
+        //Resume instance
+        Resume listResume = new Resume();
+        //Add jobs to Resume
+        listResume._jobs.Add(job1);
+        listResume._jobs.Add(job2);
+
+        //Resume Output
+        Console.WriteLine($"{listResume._jobs[0]._jobTitle}");
+        Console.WriteLine($"{listResume._jobs[1]._jobTitle}");
     }
 }

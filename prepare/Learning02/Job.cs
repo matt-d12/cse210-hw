@@ -1,3 +1,4 @@
+using System;
 public class Job
 {
     //Establish attributes
