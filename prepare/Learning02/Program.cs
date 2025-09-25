@@ -18,18 +18,14 @@ class Program
         job2._startYear = 2022;
         job2._endYear = 2023;
 
-        //Output
-        job1.Display();
-        job2.Display();
-
         //Resume instance
         Resume listResume = new Resume();
-        //Add jobs to Resume
+        //Add name and jobs to Resume
+        listResume._name = "Allison Rose";
         listResume._jobs.Add(job1);
         listResume._jobs.Add(job2);
 
         //Resume Output
-        Console.WriteLine($"{listResume._jobs[0]._jobTitle}");
-        Console.WriteLine($"{listResume._jobs[1]._jobTitle}");
+        listResume.ResumeDisplay();
     }
 }
