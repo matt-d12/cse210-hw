@@ -10,7 +10,6 @@ class Program
         bool running = true;
         //Instance Journal and Prompts
         Journal journal = new Journal();
-        PromptGenerator promptGenerator = new PromptGenerator();
 
         //Loop to start program and keep going until user uses option 5
         while (running == true)
@@ -27,10 +26,7 @@ class Program
             if (userInput == "1")
             {
                 //Option 1 for writing new entry
-                string randomPrompt = promptGenerator.GetRandomPrompt();
-                Console.WriteLine($"Prompt: {randomPrompt}");
-                Console.Write("> ");
-                string _response = Console.ReadLine();
+                journal.AddNewEntry();
             }
             else if (userInput == "2")
             {
@@ -43,6 +39,7 @@ class Program
             else if (userInput == "4")
             {
                 //Option 4 for saving journal
+                journal.SaveToFile();
             }
             else if (userInput == "5")
             {
