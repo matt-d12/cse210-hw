@@ -1,4 +1,6 @@
 using System;
+using System.IO;
+using System.Collections.Generic;
 
 //Be sure to add comment for exceeding requirements
 
@@ -31,6 +33,7 @@ class Program
             else if (userInput == "2")
             {
                 //Option 2 for displaying journal
+                journal.DisplayEntries();
             }
             else if (userInput == "3")
             {

@@ -1,4 +1,6 @@
 using System;
+using System.IO;
+using System.Collections.Generic;
 
 public class Entry
 {
@@ -19,5 +21,12 @@ public class Entry
     public string StringEntry()
     {
         return $"{_date}|{_prompt}|{_response}";
+    }
+
+    //Actual display for entries to user
+    public void DisplayEntry()
+    {
+        Console.WriteLine($"Date: {_date} - Prompt: {_prompt}");
+        Console.WriteLine(_response);
     }
 }

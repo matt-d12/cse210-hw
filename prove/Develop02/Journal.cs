@@ -1,4 +1,6 @@
 using System;
+using System.IO;
+using System.Collections.Generic;
 
 public class Journal
 {
@@ -47,6 +49,23 @@ public class Journal
         Entry newEntry = new Entry(randomPrompt, userResponse, currentDate);
         _entries.Add(newEntry);
     }
+
+    //Method for option 2 to display all entries
+    public void DisplayEntries()
+    {
+        string fileName = "journal.txt";
+        using (StreamWriter outputFile = new StreamWriter(fileName))
+        {
+            //Loop through each entry using method from Entry.cs
+            foreach (Entry entry in _entries)
+            {
+                entry.DisplayEntry();
+                Console.WriteLine();
+            }
+        }
+    }
+
+
 
     //Method for option 4 to save to text file
     public void SaveToFile()
