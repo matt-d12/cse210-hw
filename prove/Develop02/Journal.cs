@@ -35,7 +35,6 @@ public class Journal
         return _prompts[index];     //Return that random prompts index number
     }
 
-
     //Method for option 1 to make a new entry
     public void AddNewEntry()
     {
@@ -48,6 +47,7 @@ public class Journal
         //Make new entry and add to entries list
         Entry newEntry = new Entry(randomPrompt, currentDate, userResponse);
         _entries.Add(newEntry);
+        Console.WriteLine();
     }
 
     //Method for option 2 to display all entries
@@ -66,6 +66,7 @@ public class Journal
     //Method for option 3 to load journal.txt file
     public void LoadFromFile()
     {
+        Console.WriteLine("Loading file...");
         string loadFile = "journal.txt";
         string[] lines = System.IO.File.ReadAllLines(loadFile);
 
@@ -80,13 +81,14 @@ public class Journal
             Entry loadedEntry = new Entry(prompt, date, response);
             _entries.Add(loadedEntry);
         }
-
+        Console.WriteLine("Loading complete!");
+        Console.WriteLine();
     }
-
 
     //Method for option 4 to save to text file
     public void SaveToFile()
     {
+        Console.WriteLine("Saving file...");
         string fileName = "journal.txt";
         using (StreamWriter outputFile = new StreamWriter(fileName))
         {
@@ -95,6 +97,38 @@ public class Journal
             {
                 outputFile.WriteLine(e.StringEntry());
             }
+        }
+        Console.WriteLine("File saved!");
+        Console.WriteLine();
+    }
+
+    //Method for option 5 to delete an entry
+    public void DeleteEntry()
+    {
+        //Display all entries with index number
+        for (int i = 0; i < _entries.Count; i++)
+        {
+            //Add one to index numbers so it doesnt start at 0 for user
+            Console.Write($"{i + 1}. ");
+            _entries[i].DisplayEntry();
+            Console.WriteLine();
+        }
+
+        //Ask which entry to delete based off index number
+        Console.Write("Enter the number of the entry to delete: ");
+        string input = Console.ReadLine();
+
+        //Check if valid input and remove entry
+        //Check entry is greater than 0 and less than or equal to total count 
+        if (int.TryParse(input, out int entryNumber) && entryNumber > 0 && entryNumber <= _entries.Count)
+        {
+            //Subtract 1 to match actual index number
+            _entries.RemoveAt(entryNumber - 1);
+            Console.WriteLine("Entry deleted.");
+        }
+        else
+        {
+            Console.WriteLine("Invalid entry number.");
         }
     }
 }

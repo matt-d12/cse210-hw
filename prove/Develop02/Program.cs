@@ -2,7 +2,8 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 
-//Be sure to add comment for exceeding requirements
+//Added option for deleting an entry and a few extra output 
+//lines to improve readability
 
 class Program
 {
@@ -22,7 +23,8 @@ class Program
             Console.WriteLine("2. Display");
             Console.WriteLine("3. Load");
             Console.WriteLine("4. Save");
-            Console.WriteLine("5. Quit");
+            Console.WriteLine("5. Delete Entry");
+            Console.WriteLine("6. Quit");
             Console.Write("What would you like to do? ");
             string userInput = Console.ReadLine();
 
@@ -48,7 +50,12 @@ class Program
             }
             else if (userInput == "5")
             {
-                //Option 5 for quitting program
+                //Option 5 for deleting an entry
+                journal.DeleteEntry();
+            }
+            else if (userInput == "6")
+            {
+                //Option 6 for quitting program
                 running = false;
             }
             else    //Else to handle invalid inputs
