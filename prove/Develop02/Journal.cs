@@ -46,15 +46,13 @@ public class Journal
         string userResponse = Console.ReadLine();
 
         //Make new entry and add to entries list
-        Entry newEntry = new Entry(randomPrompt, userResponse, currentDate);
+        Entry newEntry = new Entry(randomPrompt, currentDate, userResponse);
         _entries.Add(newEntry);
     }
 
     //Method for option 2 to display all entries
     public void DisplayEntries()
     {
-        string fileName = "journal.txt";
-        using (StreamWriter outputFile = new StreamWriter(fileName))
         {
             //Loop through each entry using method from Entry.cs
             foreach (Entry entry in _entries)
@@ -65,6 +63,25 @@ public class Journal
         }
     }
 
+    //Method for option 3 to load journal.txt file
+    public void LoadFromFile()
+    {
+        string loadFile = "journal.txt";
+        string[] lines = System.IO.File.ReadAllLines(loadFile);
+
+        //Loop through each line and split into parts
+        foreach (string line in lines)
+        {
+            string[] parts = line.Split("|");
+            string prompt = parts[0];
+            string date = parts[1];
+            string response = parts[2];
+            //Create entries from these parts and add
+            Entry loadedEntry = new Entry(prompt, date, response);
+            _entries.Add(loadedEntry);
+        }
+
+    }
 
 
     //Method for option 4 to save to text file

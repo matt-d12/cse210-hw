@@ -17,6 +17,7 @@ class Program
         while (running == true)
         {
             //Menu display and get user input for menu option
+            Console.WriteLine("Please select one of the following choices:");
             Console.WriteLine("1. Write");
             Console.WriteLine("2. Display");
             Console.WriteLine("3. Load");
@@ -38,6 +39,7 @@ class Program
             else if (userInput == "3")
             {
                 //Option 3 for loading journal
+                journal.LoadFromFile();
             }
             else if (userInput == "4")
             {
@@ -48,6 +50,12 @@ class Program
             {
                 //Option 5 for quitting program
                 running = false;
+            }
+            else    //Else to handle invalid inputs
+            {
+                Console.WriteLine();
+                Console.WriteLine("Invalid input. Please enter a number of 1-5");
+                Console.WriteLine();
             }
         }
     }
