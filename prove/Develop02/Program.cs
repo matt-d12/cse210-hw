@@ -3,7 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 
 //Added option for deleting an entry and a few extra output 
-//lines to improve readability
+//lines to improve readability and handle some invalid inputs
 
 class Program
 {
