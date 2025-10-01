@@ -30,4 +30,17 @@ public class Fraction
         _top = top;
         _bottom = bottom;
     }
+
+    //Format the output as a string
+    public string GetFractionString()
+    {
+        string output = $"{_top} / {_bottom}";
+        return output;
+    }
+
+    //Method for getting what the fraction is as a decimal
+    public double GetDecimal()
+    {   
+        return (double)_top / (double)_bottom;
+    }
 }
