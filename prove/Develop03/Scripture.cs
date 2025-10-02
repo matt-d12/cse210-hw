@@ -8,12 +8,6 @@ public class Scripture
     private List<Word> _words;
     private Random _random;
 
-    //Method to display full scripture
-    public string DisplayScripture()
-    {
-        return $"{_reference}: {_words}";
-    }
-
     //Constructor for putting reference and scripture together as one string
     public Scripture(Reference reference, string scriptureText)
     {
@@ -24,7 +18,17 @@ public class Scripture
         //Maybe split full scripture based on spaces to then add to word list?
     }
 
+    //Method to display full scripture
+    public string DisplayScripture()
+    {
+        return $"{_reference}: {_words}";
+    }
 
+    //Method for hiding random words
+    public void HideRandomWords(int count)
+    {
+        //Check hidden words and actively hide them
+    }
 
 
 }
