@@ -1,7 +1,8 @@
 using System;
 using System.Formats.Asn1;
 
-//ADD CREATIVITY STUFF HERE
+//Added Library class to store scripture list and have it randomly pick between them which to use
+
 
 class Program
 {
