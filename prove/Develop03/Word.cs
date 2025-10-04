@@ -19,6 +19,12 @@ public class Word
         _isHidden = true;
     }
 
+    //Method for marking a word as being hidden
+    public bool isHidden()
+    {
+        return _isHidden;
+    }
+
     //Method for telling if a word is not hidden
     //(to use later to not hide same random word(s) over and over)
     public void Show()

@@ -15,6 +15,7 @@ public class Reference
         _book = book;
         _chapter = chapter;
         _startVerse = verse;
+        _endVerse = verse;
     }
 
     //Constructor method for multi-verse scripture
@@ -29,7 +30,12 @@ public class Reference
     //Method for displaying full scripture reference as string
     public string DisplayReference()
     {
-        return $"{_book} {_chapter}:{_startVerse}";
+        if (_startVerse == _endVerse)
+        {
+            return $"{_book} {_chapter}:{_startVerse}";
+        }
+        //No else since just checking if single scripture reference
+        return $"{_book} {_chapter}:{_startVerse}-{_endVerse}";
     }
 
 }
