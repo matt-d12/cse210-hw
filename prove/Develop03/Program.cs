@@ -10,7 +10,26 @@ class Program
         Library library = new Library();
         Scripture scripture = library.GetRandomScripture();
 
-        //Display scripture
-        Console.WriteLine(scripture.DisplayScripture());
+        //Loop to display scripture until all words hidden or user types quit
+        while (true)
+        {
+            //Clear console for cleaner look and re-display scripture
+            Console.Clear();
+            Console.WriteLine(scripture.DisplayScripture());
+
+            //Get user input
+            Console.WriteLine("Press enter to continue or type 'quit' to finish:");
+            string input = Console.ReadLine();
+
+            //If user hits enter then run method to hide 3 (more) random words
+            if (input == "")
+            {
+                scripture.HideRandomWords(3);
+            }
+            else if (input == "quit")
+            {
+                break;
+            }
+        }
     }
 }
