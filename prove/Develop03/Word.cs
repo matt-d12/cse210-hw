@@ -13,30 +13,29 @@ public class Word
         _isHidden = false;
     }
 
-    //Method for telling if a word is hidden
+    //Method for hiding a word
     public void Hide()
     {
         _isHidden = true;
     }
 
     //Method for marking a word as being hidden
-    public bool isHidden()
+    public bool IsHidden()
     {
         return _isHidden;
     }
 
-    //Method for telling if a word is not hidden
-    //(to use later to not hide same random word(s) over and over)
-    public void Show()
-    {
-        _isHidden = false;
-    }
-
-    //Method for displaying a word and if it is hidden, then replace with underscores
+    //Method for displaying or hiding a word
     public string DisplayText()
     {
-        //... unsure yet
-        //loop for replacing letters with _ for words marked hidden
-        return "test";
+        //If word is marked as hidden then replace with underscores
+        if (_isHidden)
+        {
+            return new string('_', _text.Length);
+        }
+        else
+        {
+            return _text;
+        }
     }
 }

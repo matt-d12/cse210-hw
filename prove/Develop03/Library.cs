@@ -7,10 +7,9 @@ public class Library
     private List<Scripture> _scriptures;
     private Random _random;
 
-    //
+    //Constructor method for new list and get random scripture from it
     public Library()
     {
-        //Constructor method for new list and get random scripture from it
         _scriptures = new List<Scripture>();
         _random = new Random();
         LoadScriptures();
@@ -40,7 +39,4 @@ public class Library
         int index = _random.Next(_scriptures.Count);
         return _scriptures[index];
     }
-
-
-
 }
