@@ -4,6 +4,10 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Learning04 World!");
+        //Create new object
+        Assignment assignment = new Assignment("Samuel Bennet", "Multiplication");
+
+        //Print summary
+        Console.WriteLine(assignment.GetSummary());
     }
 }
