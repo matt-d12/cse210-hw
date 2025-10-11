@@ -20,7 +20,7 @@ public class Activity
     {
         //Display welcome message 
         Console.Clear();
-        Console.WriteLine($"Welcome to the {_name}");
+        Console.WriteLine($"Welcome to the {_name}.");
         Console.WriteLine();
         //Display description
         Console.WriteLine(_description);

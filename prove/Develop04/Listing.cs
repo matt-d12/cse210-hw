@@ -48,7 +48,6 @@ public class ListingActivity : Activity
 
         //Show prompt and countdown to begin
         Console.WriteLine("List as many responses you can for the following prompt:");
-        Console.WriteLine();
         Console.WriteLine($" --- {prompt} ---");
         Console.Write($"You may begin in: ");
         ShowCountdown(5);
