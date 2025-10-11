@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 //Sub-class of Avtivity
 public class ReflectionActivity : Activity
@@ -6,6 +7,9 @@ public class ReflectionActivity : Activity
     //Establish attributes
     private List<string> _prompts;
     private List<string> _quesitons;
+    //Lists to track used prompts and questions
+    private List<string> _availablePrompts;
+    private List<string> _availableQuestions;
 
 
     //Constructor method (base activity is name, description)
@@ -37,29 +41,51 @@ public class ReflectionActivity : Activity
             "What did you learn about yourself through this experience?",
             "How can you keep this experience in mind in the future?"
         };
+
+        //Initialize available lists
+        _availablePrompts = new List<string>(_prompts);
+        _availableQuestions = new List<string>(_quesitons);
     }
 
     //Method for getting a random prompt
     public string GetRandomPrompt()
     {
+        //Check if used all available prompts and refill list
+        if (_availablePrompts.Count == 0)
+        {
+            _availablePrompts = new List<string>(_prompts);
+        }
         Random random = new Random();
-        int index = random.Next(_prompts.Count);
-        return _prompts[index];
+        int index = random.Next(_availablePrompts.Count);
+        //Get prompt at that index
+        string selectedPrompt = _availablePrompts[index];
+        //Remove that prompt from available list
+        _availablePrompts.RemoveAt(index);
+
+        return selectedPrompt;
     }
 
     //Method for getting a random question
     public string GetRandomQuesiton()
     {
+        //Check if used all available questions and refill list
+        if (_availableQuestions.Count == 0)
+        {
+            _availableQuestions = new List<string>(_quesitons);
+        }
         Random random = new Random();
-        int index = random.Next(_quesitons.Count);
-        return _quesitons[index];
+        int index = random.Next(_availableQuestions.Count);
+        //Get question at that index and remove from available list
+        string selectedQuestion = _availableQuestions[index];
+        _availableQuestions.RemoveAt(index);
+        return selectedQuestion;
     }
 
     //Method to display a question and pause
     public void DisplayQuestion(string question)
     {
         Console.Write($"> {question} ");
-        ShowSpinnner(5);
+        ShowSpinnner(1);
         Console.WriteLine();
     }
 

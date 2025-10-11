@@ -1,10 +1,13 @@
 using System;
+using System.Collections.Generic;
 
 //Sub-class of Avtivity
 public class ListingActivity : Activity
 {
     //Establish attributes
     private List<string> _prompts;
+    //List to track used/available prompts
+    private List<string> _availablePrompts;
 
     //Constructor method (base activity is name, description)
     public ListingActivity()
@@ -21,14 +24,27 @@ public class ListingActivity : Activity
             "When have you felt the Holy Ghost this month?",
             "Who are some of your personal heroes?"
         };
+
+        //Initialize available prompt list
+        _availablePrompts = new List<string>(_prompts);
     }
 
     //Method for getting a random prompt
     public string GetRandomPrompt()
     {
+        //Check if used all available prompts and refill list
+        if (_availablePrompts.Count == 0)
+        {
+            _availablePrompts = new List<string>(_prompts);
+        }
         Random random = new Random();
-        int index = random.Next(_prompts.Count);
-        return _prompts[index];
+        int index = random.Next(_availablePrompts.Count);
+        //Get prompt at that index
+        string selectedPrompt = _availablePrompts[index];
+        //Remove that prompt from available list
+        _availablePrompts.RemoveAt(index);
+
+        return selectedPrompt;
     }
 
     //Method to run actual activity
