@@ -39,11 +39,31 @@ public class ListingActivity : Activity
         //Get duration from user
         int duration = GetUserDuration();
 
+        //Get random prompt and display
+        string prompt = GetRandomPrompt();
+        Console.WriteLine("List as many responses you can for the following prompt:");
+        Console.WriteLine();
+        Console.WriteLine($" --- {prompt} ---");
+        Console.WriteLine();
+        //ADD COUNTDOWN HERE
 
-        //ADD PROMPT
-        //ADD LOOP TO KEEP ALLOWING INPUTS
-        //ADD COUNTER FOR REPONSES TO BE DISPLAYED AT END
+        //Take user duration and calculate end time
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(duration);
 
+        //Begin/reset counter
+        int count = 0;
+
+        //Loop to keep allowing inputs for duration
+        while (DateTime.Now < endTime)
+        {
+            Console.Write("> ");
+            string response = Console.ReadLine();
+            count++;
+        }
+
+        //Display the count
+        Console.WriteLine($"You listed {count} items!");
 
         //Display end message from Activity
         DisplayEnd();

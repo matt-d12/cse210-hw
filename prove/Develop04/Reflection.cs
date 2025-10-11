@@ -62,13 +62,40 @@ public class ReflectionActivity : Activity
         DisplayStart();
         //Get duration from user
         int duration = GetUserDuration();
+        //Get random prompt and display
+        string prompt = GetRandomPrompt();
+        Console.WriteLine("Consider the following prompt:");
+        Console.WriteLine();
+        Console.WriteLine($" --- {prompt} ---");
+        Console.WriteLine();
+        Console.WriteLine("When you have something in mind, press enter to continue.");
+        Console.ReadLine();
 
+        Console.WriteLine("Now ponder on each of the following questions as " +
+        "they related to this experience.");
+        Console.Write("You may begin in: ");
+        //ADD COUNTDOWN HERE
 
-        //ADD PROMPT AND QUESTION
-        //ADD LOOP TO KEEP ASKING QUESTIONS UNTIL TIME RUNS OUT 
+        //Take user duration and calculate end time
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(duration);
 
+        //Clear console and begin loop of asking questions until time runs out
+        while (DateTime.Now < endTime)
+        {
+            string question = GetRandomQuesiton();
+            DisplayQuestion(question);
+        }
 
         //Display end message from Activity
         DisplayEnd();
+    }
+
+    //Method to display a question and pause
+    public void DisplayQuestion(string question)
+    {
+        Console.Write($"> {question} ");
+        //ADD COUNTDOWN AND SPINNER
+        Console.WriteLine();
     }
 }
