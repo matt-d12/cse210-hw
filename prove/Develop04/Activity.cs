@@ -85,7 +85,7 @@ public class Activity
 
         //Get time and duration to know how long to show
         DateTime startTime = DateTime.Now;
-        DateTime endTime = startTime.AddSeconds(_duration);
+        DateTime endTime = startTime.AddSeconds(seconds);
 
         //Establish attribute to be used in loop
         int i = 0;
@@ -95,7 +95,7 @@ public class Activity
         {
             string s = animationStrings[i];
             Console.Write(s);
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             Console.Write("\b \b");
             i++;
 

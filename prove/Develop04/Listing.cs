@@ -44,7 +44,7 @@ public class ListingActivity : Activity
         //Clear console and show get ready
         Console.Clear();
         Console.WriteLine("Get ready...");
-        ShowSpinnner(8);
+        ShowSpinnner(5);
 
         //Show prompt and countdown to begin
         Console.WriteLine("List as many responses you can for the following prompt:");

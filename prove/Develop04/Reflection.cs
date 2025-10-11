@@ -10,7 +10,7 @@ public class ReflectionActivity : Activity
 
     //Constructor method (base activity is name, description)
     public ReflectionActivity()
-        : base("Reflection Activity",
+        : base("Reflecting Activity",
         "This activity will help you reflect on times in your life when you have " +
         "shown strength and resilience. This will help you recognize the power " +
         "you have and how you can use it in other aspects of your life.")
@@ -55,6 +55,14 @@ public class ReflectionActivity : Activity
         return _quesitons[index];
     }
 
+    //Method to display a question and pause
+    public void DisplayQuestion(string question)
+    {
+        Console.Write($"> {question} ");
+        ShowSpinnner(5);
+        Console.WriteLine();
+    }
+
     //Method to run actual activity
     public void Run()
     {
@@ -62,6 +70,12 @@ public class ReflectionActivity : Activity
         DisplayStart();
         //Get duration from user
         int duration = GetUserDuration();
+
+        //Clear console and show get ready
+        Console.Clear();
+        Console.WriteLine("Get ready...");
+        ShowSpinnner(5);
+
         //Get random prompt and display
         string prompt = GetRandomPrompt();
         Console.WriteLine("Consider the following prompt:");
@@ -74,13 +88,14 @@ public class ReflectionActivity : Activity
         Console.WriteLine("Now ponder on each of the following questions as " +
         "they related to this experience.");
         Console.Write("You may begin in: ");
-        //ADD COUNTDOWN HERE
+        ShowCountdown(5);
+        Console.Clear();
 
         //Take user duration and calculate end time
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(duration);
 
-        //Clear console and begin loop of asking questions until time runs out
+        //Loop of asking questions until time runs out
         while (DateTime.Now < endTime)
         {
             string question = GetRandomQuesiton();
@@ -89,13 +104,5 @@ public class ReflectionActivity : Activity
 
         //Display end message from Activity
         DisplayEnd();
-    }
-
-    //Method to display a question and pause
-    public void DisplayQuestion(string question)
-    {
-        Console.Write($"> {question} ");
-        //ADD COUNTDOWN AND SPINNER
-        Console.WriteLine();
     }
 }
