@@ -8,7 +8,7 @@ public class BreathingActivity : Activity
     //Constructor method (base activity is name, description)
     public BreathingActivity()
         : base("Breathing Activity",
-        "This activity will help you realx by walking you through breathing" +
+        "This activity will help you relax by walking you through breathing" +
         "in and out slowly. Clear your mind and focus on your breathing.")
     {
         //...

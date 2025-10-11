@@ -19,7 +19,7 @@ class Program
             }
             else if (choice == "2")           //Reflection Activity
             {
-                //Start reflection activity
+                StartReflectingActivity();
             }
             else if (choice == "3")           //Listening Activity
             {
@@ -65,7 +65,8 @@ class Program
     //Method for starting the reflecting activity
     static void StartReflectingActivity()
     {
-        //Create new reflection object and run
+        ReflectionActivity reflect = new ReflectionActivity();
+        reflect.Run();
     }
 
     //Method for starting the listing activity
