@@ -44,14 +44,15 @@ public class ListingActivity : Activity
         Console.WriteLine("List as many responses you can for the following prompt:");
         Console.WriteLine();
         Console.WriteLine($" --- {prompt} ---");
+        Console.Write($"You may begin in: ");
+        ShowCountdown(5);
         Console.WriteLine();
-        //ADD COUNTDOWN HERE
 
         //Take user duration and calculate end time
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(duration);
 
-        //Begin/reset counter
+        //Begin & reset counter
         int count = 0;
 
         //Loop to keep allowing inputs for duration
