@@ -39,8 +39,14 @@ public class ListingActivity : Activity
         //Get duration from user
         int duration = GetUserDuration();
 
-        //Get random prompt and display
+        //Get random prompt
         string prompt = GetRandomPrompt();
+        //Clear console and show get ready
+        Console.Clear();
+        Console.WriteLine("Get ready...");
+        ShowSpinnner(8);
+
+        //Show prompt and countdown to begin
         Console.WriteLine("List as many responses you can for the following prompt:");
         Console.WriteLine();
         Console.WriteLine($" --- {prompt} ---");

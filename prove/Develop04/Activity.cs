@@ -35,8 +35,10 @@ public class Activity
     {
         Console.WriteLine();
         Console.WriteLine("Well Done!");
+        ShowSpinnner(5);
         Console.WriteLine();
-        Console.WriteLine($"You have completed another {_duration} of the {_name}");
+        Console.WriteLine($"You have completed another {_duration} seconds of the {_name}");
+        ShowSpinnner(5);
 
         //ADD GOING BACK TO MENU HERE?
     }
