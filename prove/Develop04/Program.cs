@@ -23,7 +23,7 @@ class Program
             }
             else if (choice == "3")           //Listening Activity
             {
-                //Start listing activity
+                StartListingActivity();
             }
             else if (choice == "4")
             {
@@ -72,6 +72,7 @@ class Program
     //Method for starting the listing activity
     static void StartListingActivity()
     {
-        //Create new listing object and run
+        ListingActivity listing = new ListingActivity();
+        listing.Run();
     }
 }
