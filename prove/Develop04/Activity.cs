@@ -1,6 +1,6 @@
 using System;
 
-public class Activity()
+public class Activity
 {
     //Establish attributes
     private string _name;
@@ -37,8 +37,14 @@ public class Activity()
         Console.WriteLine("Well Done!");
         Console.WriteLine();
         Console.WriteLine($"You have completed another {_duration} of the {_name}");
-        
+
         //ADD GOING BACK TO MENU HERE?
+    }
+
+    //Method to be used for getting duration (to be used with sub-classes)
+    protected int GetUserDuration()
+    {
+        return _duration;
     }
 
 }

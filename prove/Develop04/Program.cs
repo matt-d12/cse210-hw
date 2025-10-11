@@ -13,15 +13,15 @@ class Program
             //Show the menu method below that returns user input and set it to choice attribute
             choice = DisplayMenu();
 
-            if (choice == "1")
+            if (choice == "1")                //Breathing Activity
             {
-                //Start breathing activity
+                StartBreathingActivity();
             }
-            else if (choice == "2")
+            else if (choice == "2")           //Reflection Activity
             {
                 //Start reflection activity
             }
-            else if (choice == "3")
+            else if (choice == "3")           //Listening Activity
             {
                 //Start listing activity
             }
@@ -52,5 +52,25 @@ class Program
 
         //Get user input and return to be used in if statements
         return Console.ReadLine();
+    }
+
+    //Method for starting the breathing activity
+    static void StartBreathingActivity()
+    {
+        //Create new breathing object and run
+        BreathingActivity breathing = new BreathingActivity();
+        breathing.Run();
+    }
+
+    //Method for starting the reflecting activity
+    static void StartReflectingActivity()
+    {
+        //Create new reflection object and run
+    }
+
+    //Method for starting the listing activity
+    static void StartListingActivity()
+    {
+        //Create new listing object and run
     }
 }
