@@ -1,5 +1,9 @@
 using System;
 
+//Added logic for making sure no random questions or prompts in both
+//Reflection and Listing aren't used in a row until all have been used
+//in the session
+
 class Program
 {
     static void Main(string[] args)

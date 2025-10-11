@@ -85,7 +85,7 @@ public class ReflectionActivity : Activity
     public void DisplayQuestion(string question)
     {
         Console.Write($"> {question} ");
-        ShowSpinnner(1);
+        ShowSpinnner(5);
         Console.WriteLine();
     }
 
