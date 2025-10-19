@@ -44,11 +44,15 @@ public abstract class Goal
     {
         _description = description;
     }
-    
+
     //Setter for points
     protected void SetPoints(int points)
     {
         _points = points;
     }
 
+    //Abstract methods to be overriden
+    public abstract void RecordEvent();
+    public abstract string GetStringRepresentation();
+    public abstract bool IsComplete();
 }
