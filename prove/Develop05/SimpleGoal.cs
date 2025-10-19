@@ -28,7 +28,7 @@ public class SimpleGoal : Goal
     //Method to put string together
     public override string GetStringRepresentation()
     {
-        return $"SimpleGoal:{GetName()},{GetDescription()},{GetPoints()},{_isComplete}";
+        return $"SimpleGoal|{GetName()}|{GetDescription()}|{GetPoints()}|{_isComplete}";
     }
 
     //Method for displayed info when listing

@@ -37,7 +37,7 @@ public class ChecklistGoal : Goal
     //Method to put string together
     public override string GetStringRepresentation()
     {
-        return $"ChecklistGoal:{GetName()},{GetDescription()},{GetPoints()},{_bonusPoints},{_totalCount},{_completedCount}";
+        return $"ChecklistGoal|{GetName()}|{GetDescription()}|{GetPoints()}|{_bonusPoints}|{_totalCount}|{_completedCount}";
     }
 
     //Getter for bonus points

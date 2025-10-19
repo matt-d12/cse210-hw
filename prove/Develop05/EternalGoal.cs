@@ -25,7 +25,7 @@ public class EternalGoal : Goal
     //Method to put string together
     public override string GetStringRepresentation()
     {
-        return $"EternalGoal:{GetName()},{GetDescription()},{GetPoints()}";
+        return $"EternalGoal|{GetName()}|{GetDescription()}|{GetPoints()}";
     }
 
     //Method for displayed info when listing

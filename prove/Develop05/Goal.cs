@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
 
 public abstract class Goal
 {
@@ -28,7 +30,7 @@ public abstract class Goal
     }
 
     //Getter for points
-    protected int GetPoints()
+    public int GetPoints()
     {
         return _points;
     }

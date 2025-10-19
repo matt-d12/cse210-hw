@@ -82,10 +82,56 @@ public class GoalManager
             else
             {
                 checkbox = "[ ]";
-            }   
+            }
             Console.WriteLine($"{index}. {checkbox} {goal.GetInfo()}");
             index++;
         }
+    }
+
+    //Method for recording an event (marking complete or marking a checklist completion)
+    public void RecordEvent()
+    {
+        //List out goals and get user input on which to choose
+        ListGoals();
+        Console.Write("Which goal did you accomplish? ");
+        int choiceGoal = int.Parse(Console.ReadLine()) - 1;
+
+        Goal goal = _goals[choiceGoal];
+
+        //Check if goal has already been completed
+        if (goal.IsComplete())
+        {
+            Console.WriteLine("This goal is already completed");
+            return;
+        }
+
+        //Record event and add points to score
+        goal.RecordEvent();
+        int pointsEarned = goal.GetPoints();
+        _score += pointsEarned;
+
+        //Display added points to user
+        Console.WriteLine($"Congratulations! You have earned {pointsEarned} points!");
+        Console.WriteLine($"You have {_score} points.");
+    }
+    
+    //Method for saving file
+    public void SaveGoals()
+    {
+        //Ask user for filename to save to 
+        Console.Write("What is the filename for the goal file? ");
+        string fileName = Console.ReadLine();
+        using (StreamWriter outputFile = new StreamWriter(fileName))
+        {
+            //Save point total
+            outputFile.WriteLine(_score);
+            //Loop through each goal and save 
+            foreach (Goal goal in _goals)
+            {
+                outputFile.WriteLine(goal.GetStringRepresentation());
+            }
+        }
+        Console.WriteLine();
     }
 
     
