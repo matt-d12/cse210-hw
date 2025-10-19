@@ -3,6 +3,7 @@ using System;
 //Sub class of Goal
 public class EternalGoal : Goal
 {
+    //Constructor method
     public EternalGoal(string name, string description, int points)
         : base(name, description, points)
     {
@@ -24,7 +25,7 @@ public class EternalGoal : Goal
     //Method to put string together
     public override string GetStringRepresentation()
     {
-        return $"EternalGoal:{GetName()}, {GetDescription()}, {GetPoints()}";
+        return $"EternalGoal:{GetName()},{GetDescription()},{GetPoints()}";
     }   
         
 }
