@@ -6,34 +6,35 @@ class Program
 {
     static void Main(string[] args)
     {
-        //Establish attribute for choice
+        //Establish attribute for choice and initialize goal manager
         string choice = "";
+        GoalManager manager = new GoalManager();
 
         //Loop for user to control menu
         while (choice != "6")
         {
             //Show the menu method below that returns user input and set it to choice attribute
-            choice = DisplayMenu();
+            choice = DisplayMenu(manager.GetScore());
 
             if (choice == "1")                //Create new goal
             {
-                //TBD
+                manager.CreateGoal();
             }
             else if (choice == "2")           //List goals
             {
-                //TBD
+                manager.ListGoals();
             }
             else if (choice == "3")           //Save goals
             {
-                //TBD
+                manager.SaveGoals();
             }
             else if (choice == "4")           //Load goals
             {
-                //TBD
+                manager.LoadGoals();
             }
             else if (choice == "5")           //Record an event
             {
-                //TBD
+                manager.RecordEvent();
             }
             else if (choice == "6")
             {
@@ -41,17 +42,17 @@ class Program
             }
             else
             {
-                //Invalid choice please try again
+                Console.WriteLine("Invalid choice. Please try again.");
             }
         }
     }
 
     //Method for the diplay menu
-    static string DisplayMenu()
+    static string DisplayMenu(int score)
     {
-        Console.Clear();
-        //Show current points - REPLACE WITH COUNTER LATER
-        Console.WriteLine("You have 0 points");
+        Console.WriteLine();
+        //Show current points
+        Console.WriteLine($"You have {score} points");
         Console.WriteLine();
         //Show menu options
         Console.WriteLine("  1. Create New Goal");

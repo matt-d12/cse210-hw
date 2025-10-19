@@ -61,7 +61,7 @@ public class ChecklistGoal : Goal
     //Method for displayed info when listing
     public override string GetInfo()
     {
-        return $"{GetName()} ({GetDescription}) -- Currently completed: {_completedCount}/{_totalCount}";
+        return $"{GetName()} ({GetDescription()}) -- Currently completed: {_completedCount}/{_totalCount}";
     }
 
 }

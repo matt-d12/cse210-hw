@@ -34,6 +34,6 @@ public class SimpleGoal : Goal
     //Method for displayed info when listing
     public override string GetInfo()
     {
-        return $"{GetName()} ({GetDescription})";
+        return $"{GetName()} ({GetDescription()})";
     }
 }

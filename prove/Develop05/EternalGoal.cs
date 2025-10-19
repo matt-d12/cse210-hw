@@ -13,7 +13,7 @@ public class EternalGoal : Goal
     //Method for recording an event
     public override void RecordEvent()
     {
-        //COME BACK
+        //...
     }
 
     //Method for making sure this doesn't get marked as complete
@@ -31,6 +31,6 @@ public class EternalGoal : Goal
     //Method for displayed info when listing
     public override string GetInfo()
     {
-        return $"{GetName()} ({GetDescription})";
+        return $"{GetName()} ({GetDescription()})";
     }
 }

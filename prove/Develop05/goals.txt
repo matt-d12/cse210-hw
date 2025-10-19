@@ -1,0 +1,4 @@
+95
+EternalGoal|scripture study|study at least 10 minutes a day|5
+ChecklistGoal|temple|go to the temple|10|50|3|3
+SimpleGoal|church|go to church|10|True

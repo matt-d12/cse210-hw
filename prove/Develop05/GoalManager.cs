@@ -1,5 +1,7 @@
 using System;
-using System.Security.AccessControl;
+using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 
 //Not sub class - class to manage the goal creation and interractions
 public class GoalManager
@@ -7,14 +9,12 @@ public class GoalManager
     //Establish attributes
     private List<Goal> _goals;
     private int _score;
-    private string _fileName;
 
     //Constructor method
     public GoalManager()
     {
         _goals = new List<Goal>();
         _score = 0;
-        _fileName = "goals.txt";
     }
 
     //Method for user prompts when creating a goal
@@ -33,11 +33,11 @@ public class GoalManager
         string name = Console.ReadLine();
 
         //Ask user for description and store
-        Console.WriteLine("What is a short description of it? ");
+        Console.Write("What is a short description of it? ");
         string description = Console.ReadLine();
 
         //Ask user for points and store as an int
-        Console.WriteLine("What is the amount of points associated with this goal? ");
+        Console.Write("What is the amount of points associated with this goal? ");
         int points = int.Parse(Console.ReadLine());
 
         //If to check which they selected and create new entry for the list
@@ -115,10 +115,18 @@ public class GoalManager
         goal.RecordEvent();
         int pointsEarned = goal.GetPoints();
         _score += pointsEarned;
+        int totalEarned = pointsEarned;
+
+        //Add bonus points if it was checklist goal being completed
+        if (goal is ChecklistGoal checklist && checklist.IsComplete())
+        {
+            int bonus = checklist.GetBonusPoints();
+            _score += bonus;
+            totalEarned += bonus;
+        }
 
         //Display added points to user
-        Console.WriteLine($"Congratulations! You have earned {pointsEarned} points!");
-        Console.WriteLine($"You have {_score} points.");
+        Console.WriteLine($"Congratulations! You have earned {totalEarned} points!");
     }
 
     //Method for saving file
