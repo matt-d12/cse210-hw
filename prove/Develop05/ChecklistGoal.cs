@@ -9,7 +9,8 @@ public class ChecklistGoal : Goal
     private int _totalCount;
 
     //Constructor method
-    public ChecklistGoal(string name, string description, int points)
+    public ChecklistGoal(string name, string description, int points, int bonusPoints,
+                        int totalCount, int completedCount = 0)
         : base(name, description, points)
     {
         _bonusPoints = bonusPoints;
