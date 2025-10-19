@@ -10,7 +10,7 @@ public class SimpleGoal : Goal
     public SimpleGoal(string name, string description, int points)
         : base(name, description, points)
     {
-        _isComplete = isComplete;
+        _isComplete = false;
     }
 
     //Method when event is recordded
@@ -29,5 +29,11 @@ public class SimpleGoal : Goal
     public override string GetStringRepresentation()
     {
         return $"SimpleGoal:{GetName()},{GetDescription()},{GetPoints()},{_isComplete}";
-    }        
+    }
+
+    //Method for displayed info when listing
+    public override string GetInfo()
+    {
+        return $"{GetName()} ({GetDescription})";
+    }
 }

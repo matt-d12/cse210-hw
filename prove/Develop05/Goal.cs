@@ -51,6 +51,12 @@ public abstract class Goal
         _points = points;
     }
 
+    //Method just for showing details when listed out to user
+    public virtual string GetInfo()
+    {
+        return $"{_name} ({_description})";
+    }
+
     //Abstract methods to be overriden
     public abstract void RecordEvent();
     public abstract string GetStringRepresentation();

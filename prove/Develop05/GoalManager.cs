@@ -83,7 +83,7 @@ public class GoalManager
             {
                 checkbox = "[ ]";
             }   
-            Console.WriteLine($"{index}. {checkbox} {goal.}");
+            Console.WriteLine($"{index}. {checkbox} {goal.GetInfo()}");
             index++;
         }
     }
