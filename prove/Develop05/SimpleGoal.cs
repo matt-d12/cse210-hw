@@ -7,10 +7,10 @@ public class SimpleGoal : Goal
     private bool _isComplete;
 
     //Constructor method
-    public SimpleGoal(string name, string description, int points)
+    public SimpleGoal(string name, string description, int points, bool isComplete)
         : base(name, description, points)
     {
-        _isComplete = false;
+        _isComplete = isComplete;
     }
 
     //Method when event is recordded

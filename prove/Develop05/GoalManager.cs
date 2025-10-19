@@ -43,7 +43,7 @@ public class GoalManager
         //If to check which they selected and create new entry for the list
         if (choice == "1")
         {
-            SimpleGoal goal = new SimpleGoal(name, description, points);
+            SimpleGoal goal = new SimpleGoal(name, description, points, false);
             _goals.Add(goal);
         }
         else if (choice == "2")
@@ -88,6 +88,12 @@ public class GoalManager
         }
     }
 
+    //Method to get score
+    public int GetScore()
+    {
+        return _score;
+    }
+
     //Method for recording an event (marking complete or marking a checklist completion)
     public void RecordEvent()
     {
@@ -114,7 +120,7 @@ public class GoalManager
         Console.WriteLine($"Congratulations! You have earned {pointsEarned} points!");
         Console.WriteLine($"You have {_score} points.");
     }
-    
+
     //Method for saving file
     public void SaveGoals()
     {
@@ -133,13 +139,68 @@ public class GoalManager
         }
         Console.WriteLine();
     }
-
     
+    //Method for loading file
+    public void LoadGoals()
+    {
+        Console.Write("What is the filename for the goal file? ");
+        string fileName = Console.ReadLine();
 
+        if (File.Exists(fileName))
+        {
+            string[] lines = File.ReadAllLines(fileName);
+            
+            //Set line 1 to the score in each and clear out current goals list
+            _score = int.Parse(lines[0]);
+            _goals.Clear();
+            
+            //Loop through entries and split on | 
+            for (int i = 1; i < lines.Length; i++)
+            {
+                string line = lines[i];
+                string[] parts = line.Split("|");
+                string goalType = parts[0];
 
+                //Check if simple goal and split accordingly
+                if (goalType == "SimpleGoal")
+                {
+                    string name = parts[1];
+                    string description = parts[2];
+                    int points = int.Parse(parts[3]);
+                    bool isComplete = bool.Parse(parts[4]);
 
+                    SimpleGoal goal = new SimpleGoal(name, description, points, isComplete);
+                    _goals.Add(goal);
+                }
+                //Check if eternal goal and split accordingly
+                else if (goalType == "EternalGoal")
+                {
+                    string name = parts[1];
+                    string description = parts[2];
+                    int points = int.Parse(parts[3]);
 
+                    EternalGoal goal = new EternalGoal(name, description, points);
+                    _goals.Add(goal);
+                }
+                //Check if checklist goal and split accordingly
+                else if (goalType == "ChecklistGoal")
+                {
+                    string name = parts[1];
+                    string description = parts[2];
+                    int points = int.Parse(parts[3]);
+                    int bonusPoints = int.Parse(parts[4]);
+                    int totalCount = int.Parse(parts[5]);
+                    int completedCount = int.Parse(parts[6]);
 
-
-
+                    ChecklistGoal goal = new ChecklistGoal(name, description, points, bonusPoints, totalCount, completedCount);
+                    _goals.Add(goal);
+                }
+            }
+            Console.WriteLine("Goals loaded");
+        }
+        else
+        {
+            Console.WriteLine("File not found");
+        }
+    }
 }
