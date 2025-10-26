@@ -9,5 +9,12 @@ public class Product
     private int _quantity;
 
     //Constructor
+    public Product(string name, string productId, double price, int quantity)
+    {
+        _name = name;
+        _productId = productId;
+        _price = price;
+        _quantity = quantity;
+    }
 
 }
