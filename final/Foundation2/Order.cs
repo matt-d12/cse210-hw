@@ -25,10 +25,14 @@ public class Order
         double total = 0;
         foreach (Product p in _products)
         {
-            //Add total cost
+            total += p.GetTotalCost();
         }
 
         //Add shipping cost
+        if (_customer.LivesInUSA())
+            total += 5;
+        else
+            total += 35;
 
         return total;
     }
@@ -47,7 +51,6 @@ public class Order
     //Method to create shipping label
     public string GetShippingLabel()
     {
-        //shipping label
+        return $"Shipping Label:\n{_customer.GetName()}\n{_customer.GetAddressString()}";
     }
-
 }
