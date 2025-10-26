@@ -1,0 +1,11 @@
+Open-Ended Project
+
+Title: Wilderness Exploration
+
+This will be a text based adventure akin to The Oregon Trail. The player will engage in 
+simple combat encounters, manage inventory and supplies, as well as exploration. 
+The goal is for the player to eventually return back to civilizaiton. Options
+to save and load saves will be handled through a txt document as well. 
+Classes to be included would be that of a player, item, weapon (item child),
+consumable (item child), enemy, location, inventory, and a game manager to name a few.
+The enemy and item classes would have subclasses as well as locations. 
