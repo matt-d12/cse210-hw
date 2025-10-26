@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 public class Video
 {
@@ -32,10 +33,16 @@ public class Video
     //Method to display all video info
     public void DisplayVideoInfo()
     {
+        Console.WriteLine();
         Console.WriteLine($"Title: {_title}");
         Console.WriteLine($"Author: {_author}");
         Console.WriteLine($"Length: {_length} seconds");
         Console.WriteLine($"Comment Count: {GetCommentCount()}");
-    }
 
+        //Loop through for each comment
+        foreach (Comment comment in _comments)
+        {
+            comment.Display();
+        }
+    }
 }

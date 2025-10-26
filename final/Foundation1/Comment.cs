@@ -13,4 +13,9 @@ public class Comment
         _text = text;
     }
 
+    //Method for displaying comment info
+    public void Display()
+    {
+        Console.WriteLine($" - {_commenterName}: {_text}");
+    }
 }
