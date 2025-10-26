@@ -17,4 +17,15 @@ public class Product
         _quantity = quantity;
     }
 
+    //Method for getting total cost
+    public double GetTotalCost()
+    {
+        return _price * _quantity;
+    }
+
+    //Method to get product info
+    public string GetProductInfo()
+    {
+        return $"{_name} (ID: {_productId})";
+    }
 }
