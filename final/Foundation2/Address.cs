@@ -17,4 +17,16 @@ public class Address
         _country = country;
     }
 
+    //Method to tell if user is in USA
+    public bool IsInUSA()
+    {
+        //Convert to lower case to check
+        return _country.Trim().ToLower() == "usa";
+    }
+
+    //Method to put full address together
+    public string GetFullAddress()
+    {
+        return $"{_street}\n{_city}, {_state}\n{_country}";
+    }
 }

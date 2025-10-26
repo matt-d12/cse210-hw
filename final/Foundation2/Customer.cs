@@ -13,4 +13,22 @@ public class Customer
         _address = address;
     }
 
+    //Method to show if someone is living in USA for shipping
+    public bool LivesInUSA()
+    {
+        return _address.IsInUSA();
+    }
+
+    //Method to get customer name
+    public string GetName()
+    {
+        return _name;
+    }
+
+    //Method to get address string
+    public string GetAddressString()
+    {
+        return _address.GetFullAddress();
+    }
+
 }
