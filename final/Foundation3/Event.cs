@@ -22,7 +22,7 @@ public class Event
     //Method to get standard details
     public string GetStandardDetails()
     {
-        return $"Title: {_title}\nDescription: {_description}\nDate: {_date}nTime: {_time}\nAddress:\n{_address.GetFullAddress()}";
+        return $"Title: {_title}\nDescription: {_description}\nDate: {_date}\nTime: {_time}\nAddress:\n{_address.GetFullAddress()}";
     }
 
     //Method to get short description
