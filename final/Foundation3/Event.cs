@@ -28,7 +28,7 @@ public class Event
     //Method to get short description
     public virtual string GetShortDescription()
     {
-        return "";     //Will be overridden by child classes
+        return $"{GetType().Name} - {_title} on {_date}";     //Will be overridden by child classes
     }
 
     //Method to get full description
