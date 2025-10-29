@@ -4,6 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Foundation3 World!");
+        //Create addresses (TESTING)
+        Address a1 = new Address("123 Main St", "Rexburg", "ID", "USA");
     }
 }
