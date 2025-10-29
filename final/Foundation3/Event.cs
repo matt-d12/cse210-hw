@@ -36,5 +36,4 @@ public class Event
     {
         return GetStandardDetails();     //Will be overridden by child classes
     }
-
 }

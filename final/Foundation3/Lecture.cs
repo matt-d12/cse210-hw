@@ -19,5 +19,4 @@ public class Lecture : Event
     {
         return $"{GetStandardDetails()}\nType: Lecture\nSpeaker: {_speaker}\nCapacity: {_capacity}";
     }
-
 }
